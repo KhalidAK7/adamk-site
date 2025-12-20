@@ -12,15 +12,15 @@
         .container { max-width: 900px; margin: 0 auto; text-align: left; padding-left: 20px; }
         h1 { font-size: 3rem; margin-bottom: 20px; font-weight: 700; color: #000; }
         p.bio { max-width: 800px; font-size: 1.2rem; margin-bottom: 60px; color: #000; font-style: italic; font-weight: 500; }
-       
+      
         .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
-       
+      
         .clock-widget { display: inline-block; margin: 60px auto; }
         .clock-label { display: block; font-weight: bold; font-size: 1.7rem; margin-bottom: 8px; }
         .clock-timer { background: #fff; padding: 15px 40px; border-radius: 50px; font-size: 1.8rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #ddd; transition: all 0.3s ease; cursor: default; }
         .clock-timer:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.15); transform: translateY(-5px); }
-       
+      
         .agency-promo { max-width: 1200px; margin: 80px auto; background: #f9f9f9; border: 1px solid #ddd; border-radius: 20px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
         .agency-promo:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
         .agency-promo img { width: 100%; height: auto; display: block; }
@@ -29,67 +29,55 @@
         .agency-promo p { font-size: 1.2rem; margin-bottom: 30px; color: #444; opacity: 0.9; }
         .agency-promo .btn { display: inline-block; background: #222; color: #fff; padding: 18px 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; border-radius: 50px; transition: background 0.3s; }
         .agency-promo .btn:hover { background: #444; }
-       
+      
         .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 1200px; margin: 80px auto; }
         .card { background: #f9f9f9; padding: 50px 30px; transition: transform 0.3s; border: 1px solid #ddd; border-radius: 20px; }
         .card:hover { transform: translateY(-10px); }
         .card h3 { font-size: 1.8rem; margin-bottom: 15px; color: #000; }
         .card p { opacity: 0.8; margin-bottom: 20px; color: #444; }
         .card a { color: #007bff; text-decoration: none; font-weight: 600; font-size: 1.1rem; }
-       
+      
         .yellow-widget { display: inline-block; background: #d4af37; color: #000 !important; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 600; margin: 10px; transition: all 0.3s; }
         .yellow-widget:hover { background: #c19a2c; transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0,0,0,0.15); }
-       
+      
         .contact-widget { position: fixed; top: 20px; right: 20px; background: #222; color: #fff; padding: 15px 40px; border-radius: 50px; font-size: 1rem; z-index: 999; box-shadow: 0 4px 15px rgba(0,0,0,0.1); cursor: pointer; transition: all 0.3s ease; }
         .contact-widget:hover { background: #444; box-shadow: 0 8px 25px rgba(0,0,0,0.2); transform: translateY(-3px); }
-       
+      
         .social-icons { position: fixed; top: 100px; right: 20px; display: flex; flex-direction: column; gap: 14px; z-index: 999; }
         .social-icon { width: 45px; height: 45px; background: #111; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.3rem; text-decoration: none; transition: background 0.3s; }
         .social-icon:hover { background: #333; }
-       
+      
         .menu-toggle { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: #fff; color: #000; padding: 12px 50px; border-radius: 50px; font-weight: bold; font-size: 1.2rem; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 1px solid #ddd; transition: all 0.3s; z-index: 998; }
         .menu-toggle:hover { background: #f0f0f0; box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
-       
+      
         .menu-icons { position: fixed; top: 80px; left: 50%; transform: translateX(-50%); display: none; flex-direction: row; gap: 20px; z-index: 997; align-items: center; }
         .menu-icon { width: 60px; height: 60px; background: #222; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; text-decoration: none; transition: all 0.3s; }
         .menu-icon:hover { background: #444; transform: scale(1.1); }
         .menu-close { background: #c00; }
         .menu-close:hover { background: #f00; }
-       
+      
         .back-to-top { position: fixed; bottom: 30px; left: 30px; background: #222; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: none; align-items: center; justify-content: center; font-size: 1.8rem; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 998; transition: all 0.3s; }
         .back-to-top:hover { background: #444; transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
-       
+      
         .cta { max-width: 800px; margin: 120px auto; text-align: center; }
         .cta h2 { font-size: 2.2rem; margin-bottom: 20px; color: #000; font-weight: bold; }
         .btn { display: inline-block; background: #222; color: #fff; padding: 18px 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; margin-top: 20px; border-radius: 50px; transition: background 0.3s; }
         .btn:hover { background: #444; }
-       
+      
         .roles { max-width: 1000px; margin: 120px auto; text-align: center; }
         .roles h3 { font-size: 1.8rem; margin: 40px 0 20px; color: #000; }
         .roles p { color: #444; }
         hr { border: none; border-top: 1px solid #ddd; margin: 60px 0; }
-       
+      
         .newsletter { max-width: 600px; margin: 100px auto; text-align: center; }
         .newsletter input { padding: 15px; width: 70%; background: #f9f9f9; border: 1px solid #ddd; color: #000; }
         .newsletter button { padding: 15px 30px; background: #222; color: #fff; border: none; font-weight: bold; cursor: pointer; }
-       
+      
         footer { margin-top: 150px; opacity: 0.7; color: #444; text-align: center; }
         footer a { color: #222; text-decoration: none; font-weight: 600; }
         footer a:hover { text-decoration: underline; }
         a { color: #007bff; }
        
-        .chatbot { position: fixed; bottom: 20px; right: 20px; width: 300px; background: #fff; border: 1px solid #ddd; box-shadow: 0 0 10px rgba(0,0,0,0.1); display: none; flex-direction: column; z-index: 1000; }
-        .chatbot-header { background: #222; color: #fff; padding: 10px; text-align: center; cursor: pointer; }
-        .chatbot-body { padding: 10px; height: 300px; overflow-y: auto; background: #f9f9f9; display: flex; flex-direction: column; }
-        .chatbot-input { display: flex; border-top: 1px solid #ddd; }
-        .chatbot-input input { flex: 1; padding: 10px; border: none; }
-        .chatbot-input button { padding: 10px; background: #222; color: #fff; border: none; cursor: pointer; }
-        .chatbot-toggle { position: fixed; bottom: 20px; right: 20px; background: #222; color: #fff; width: 60px; height: 60px; border-radius: 50%; cursor: pointer; box-shadow: 0 0 10px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; font-size: 2rem; z-index: 1001; transition: background 0.3s; }
-        .chatbot-toggle:hover { background: #444; }
-        .message { margin: 10px 0; padding: 10px; border-radius: 10px; max-width: 80%; }
-        .user-message { background: #e0e0e0; color: #000; align-self: flex-end; margin-left: auto; }
-        .bot-message { background: #222; color: #fff; align-self: flex-start; }
-        
         .site-logo img { position: fixed; top: 20px; left: 20px; height: 100px; z-index: 999; transition: opacity 0.3s; }
         .site-logo:hover img { opacity: 0.8; }
 
@@ -100,19 +88,18 @@
             .contact-widget { padding: 12px 30px; font-size: 0.9rem; top: 15px; right: 15px; }
             .menu-toggle { padding: 10px 40px; font-size: 1rem; top: 15px; }
             /* Social icons: fixed at bottom center, horizontal row */
-            .social-icons { 
-                position: fixed; 
-                top: auto; 
-                bottom: 20px; 
-                left: 50%; 
-                transform: translateX(-50%); 
-                flex-direction: row; 
-                gap: 15px; 
+            .social-icons {
+                position: fixed;
+                top: auto;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                flex-direction: row;
+                gap: 15px;
             }
             .social-icon { width: 45px; height: 45px; font-size: 1.2rem; }
-            /* Back-to-top: back to bottom left on mobile */
+            /* Back-to-top: bottom left on mobile */
             .back-to-top { bottom: 30px; left: 30px; transform: none; }
-            .chatbot-toggle { bottom: 20px; right: 20px; }
         }
     </style>
 </head>
@@ -121,12 +108,10 @@
     <a href="#" class="site-logo">
         <img src="logo.png" alt="آدم | AK">
     </a>
-
     <!-- Contact Box Widget -->
     <div class="contact-widget" onclick="window.location.href='mailto:info@khalidak.site'">
         Contact
     </div>
-
     <!-- Social Icons -->
     <div class="social-icons">
         <a href="#" class="social-icon" title="PayPal"><i class="fab fa-paypal"></i></a>
@@ -135,10 +120,8 @@
         <a href="#" class="social-icon" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         <a href="https://revolut.me/khalid_ak" class="social-icon" title="Revolut"><i class="fas fa-money-bill-wave"></i></a>
     </div>
-
     <!-- Top MENU Pill Button -->
     <div class="menu-toggle" onclick="toggleMenu()">MENU</div>
-
     <!-- Menu Icons -->
     <div class="menu-icons" id="menu-icons">
         <a href="#portfolio" class="menu-icon" title="Portfolio"><i class="fas fa-briefcase"></i></a>
@@ -147,18 +130,15 @@
         <a href="#roles" class="menu-icon" title="Roles"><i class="fas fa-user-tie"></i></a>
         <a onclick="toggleMenu()" class="menu-icon menu-close" title="Close Menu"><i class="fas fa-times"></i></a>
     </div>
-
     <div class="container fade-in">
         <h1>Adam Khalid Kaina</h1>
         <p class="bio">I’m Adam, a digital creator and agency founder focused on building clean, effective online experiences. I work across web design, branding, and automation, helping ideas turn into professional systems that are simple, scalable, and built to perform. This site acts as a central hub for my work, projects, and ongoing experiments as I continue learning, building, and refining my craft.</p>
     </div>
-
     <!-- Live Timer Widget -->
     <div class="clock-widget fade-in">
         <span class="clock-label">Adam's Live Time Zone</span>
         <div class="clock-timer" id="time">00:00:00</div>
     </div>
-
     <!-- Digital Marketing Agency Promo Card -->
     <div class="agency-promo fade-in">
         <img src="https://files.catbox.moe/9b8k3p.jpg" alt="Digital Marketing Agency">
@@ -168,7 +148,6 @@
             <a href="https://youragency.site" target="_blank" class="btn">Visit Agency</a>
         </div>
     </div>
-
     <div class="cards fade-in" id="portfolio">
         <div class="card">
             <h3>My Portfolio</h3>
@@ -186,13 +165,11 @@
             <a href="#" class="yellow-widget">Go to Dashboard</a>
         </div>
     </div>
-
     <div class="cta fade-in" id="contact">
         <h2>Serious about your digital presence? So am I.</h2>
         <p>Let’s turn your ideas into clean, high-performing online experiences.</p>
         <a href="mailto:info@khalidak.site" class="btn">Start Your Project</a>
     </div>
-
     <div class="roles fade-in" id="roles">
         <h3>Digital Creator & Agency Founder</h3>
         <p>Building effective web experiences, branding, and automation systems for brands and creators.</p>
@@ -203,7 +180,6 @@
         <h3>Automation & Growth Strategist</h3>
         <p>Helping businesses implement systems that streamline operations and drive sustainable growth.</p>
     </div>
-
     <div class="newsletter fade-in">
         <h2>Get the Latest</h2>
         <p>Get updates on new projects, tips, and insights from my experiments in digital creation.</p>
@@ -212,30 +188,30 @@
             <button type="submit">Subscribe</button>
         </form>
     </div>
-
     <footer class="fade-in">
         <h3>Created by Adam Khalid Kaina</h3>
         <p><a href="mailto:info@khalidak.site">info@khalidak.site</a></p>
         <p><a href="terms.html" target="_blank">Terms of Service & Privacy Policy</a></p>
     </footer>
-
     <!-- Back to Top Button -->
     <div class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
         ↑↑↑
     </div>
 
-    <!-- AI Chat Bot -->
-    <div class="chatbot-toggle" onclick="toggleChatbot()">✨</div>
-    <div class="chatbot" id="chatbot">
-        <div class="chatbot-header" onclick="toggleChatbot()">Customer Support AI <span style="float:right;">✖</span></div>
-        <div class="chatbot-body" id="chatbot-body">
-            <div class="message bot-message">Hello! How can I help you today?</div>
-        </div>
-        <div class="chatbot-input">
-            <input type="text" id="chatbot-input" placeholder="Type a message..." onkeydown="if(event.key==='Enter') sendMessage()">
-            <button onclick="sendMessage()">Send</button>
-        </div>
-    </div>
+    <!-- tawk.to Live Chat Script -->
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/6946fa56a83a5d19807b3c4f/1jcuk3p2e';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
 
     <script>
         function updateClock() {
@@ -245,53 +221,19 @@
         }
         setInterval(updateClock, 1000);
         updateClock();
-
         function toggleMenu() {
             const menuIcons = document.getElementById('menu-icons');
             menuIcons.style.display = menuIcons.style.display === 'flex' ? 'none' : 'flex';
         }
-
         window.addEventListener('scroll', () => {
             const backToTop = document.querySelector('.back-to-top');
             backToTop.style.display = window.scrollY > 300 ? 'flex' : 'none';
         });
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => entry.isIntersecting && entry.target.classList.add('visible'));
         }, { threshold: 0.1 });
         document.querySelectorAll('.fade-in').forEach(elem => observer.observe(elem));
-
-        function toggleChatbot() {
-            const chatbot = document.getElementById('chatbot');
-            chatbot.style.display = chatbot.style.display === 'flex' ? 'none' : 'flex';
-        }
-
-        function sendMessage() {
-            const input = document.getElementById('chatbot-input');
-            if (!input.value.trim()) return;
-            const body = document.getElementById('chatbot-body');
-            const userMsg = document.createElement('div');
-            userMsg.className = 'message user-message';
-            userMsg.textContent = input.value;
-            body.appendChild(userMsg);
-            const botMsg = document.createElement('div');
-            botMsg.className = 'message bot-message';
-            botMsg.textContent = getBotResponse(input.value.toLowerCase());
-            body.appendChild(botMsg);
-            body.scrollTop = body.scrollHeight;
-            input.value = '';
-        }
-
-        function getBotResponse(message) {
-            if (message.includes('hello') || message.includes('hi')) return 'Hi! Welcome to Adam Khalid Kaina\'s site. How can I assist you?';
-            if (message.includes('project') || message.includes('start')) return 'Great! Click "Start Your Project" or email info@khalidak.site to discuss your ideas.';
-            if (message.includes('portfolio') || message.includes('work')) return 'Click the "View My Work" button in the Portfolio card!';
-            if (message.includes('agency')) return 'Click "Visit Agency" in the agency card for more details.';
-            if (message.includes('branding') || message.includes('web design')) return 'Adam specializes in modern, effective web design and branding. Let\'s talk about your needs!';
-            return 'Thanks for reaching out! For detailed inquiries, email info@khalidak.site — Adam will get back to you soon.';
-        }
     </script>
 </body>
 </html>
-
 
