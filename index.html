@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         html { scroll-behavior: smooth; }
-        body { margin: 0; font-family: 'Inter', sans-serif; background: #ffffff; color: #000; line-height: 1.8; padding: 100px 20px 60px; text-align: center; }
+        body { margin: 0; font-family: 'Inter', sans-serif; background: #ffffff; color: #000; line-height: 1.8; padding: 100px 20px 100px; text-align: center; }
         .container { max-width: 900px; margin: 0 auto; text-align: left; padding-left: 20px; }
         h1 { font-size: 3rem; margin-bottom: 20px; font-weight: 700; color: #000; }
         p.bio { max-width: 800px; font-size: 1.2rem; margin-bottom: 60px; color: #000; font-style: italic; font-weight: 500; }
@@ -93,16 +93,25 @@
         .site-logo img { position: fixed; top: 20px; left: 20px; height: 100px; z-index: 999; transition: opacity 0.3s; }
         .site-logo:hover img { opacity: 0.8; }
 
-        /* Mobile optimizations - only apply on small screens */
+        /* Mobile fixes - only apply on small screens */
         @media (max-width: 768px) {
-            body { padding-top: 80px; }
-            .site-logo img { height: 70px !important; top: 15px; left: 15px; }
+            body { padding-top: 80px; padding-bottom: 100px; }
+            .site-logo img { height: 70px; top: 15px; left: 15px; }
             .contact-widget { padding: 12px 30px; font-size: 0.9rem; top: 15px; right: 15px; }
             .menu-toggle { padding: 10px 40px; font-size: 1rem; top: 15px; }
-            .social-icons { position: fixed; top: auto; bottom: 100px; right: 15px; left: 15px; flex-direction: row; justify-content: center; gap: 12px; }
-            .social-icon { width: 40px; height: 40px; font-size: 1.1rem; }
-            .back-to-top { bottom: 80px; left: 15px; }
-            .chatbot-toggle { bottom: 15px; right: 15px; }
+            /* Social icons: fixed at bottom, horizontal row, centered */
+            .social-icons { 
+                position: fixed; 
+                top: auto; 
+                bottom: 20px; 
+                left: 50%; 
+                transform: translateX(-50%); 
+                flex-direction: row; 
+                gap: 15px; 
+            }
+            .social-icon { width: 45px; height: 45px; font-size: 1.2rem; }
+            .back-to-top { bottom: 90px; left: 50%; transform: translateX(-50%); }
+            .chatbot-toggle { bottom: 20px; right: 20px; }
         }
     </style>
 </head>
@@ -116,7 +125,8 @@
     <div class="contact-widget" onclick="window.location.href='mailto:info@khalidak.site'">
         Contact
     </div>
-    <!-- Social Icons Column -->
+
+    <!-- Social Icons -->
     <div class="social-icons">
         <a href="#" class="social-icon" title="PayPal"><i class="fab fa-paypal"></i></a>
         <a href="https://discord.com/users/731919513150554183" target="_blank" class="social-icon" title="Discord"><i class="fab fa-discord"></i></a>
@@ -124,8 +134,10 @@
         <a href="#" class="social-icon" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         <a href="https://revolut.me/khalid_ak" class="social-icon" title="Revolut"><i class="fas fa-money-bill-wave"></i></a>
     </div>
+
     <!-- Top MENU Pill Button -->
     <div class="menu-toggle" onclick="toggleMenu()">MENU</div>
+
     <!-- Menu Icons -->
     <div class="menu-icons" id="menu-icons">
         <a href="#portfolio" class="menu-icon" title="Portfolio"><i class="fas fa-briefcase"></i></a>
@@ -134,10 +146,12 @@
         <a href="#roles" class="menu-icon" title="Roles"><i class="fas fa-user-tie"></i></a>
         <a onclick="toggleMenu()" class="menu-icon menu-close" title="Close Menu"><i class="fas fa-times"></i></a>
     </div>
+
     <div class="container fade-in">
         <h1>Adam Khalid Kaina</h1>
         <p class="bio">I’m Adam, a digital creator and agency founder focused on building clean, effective online experiences. I work across web design, branding, and automation, helping ideas turn into professional systems that are simple, scalable, and built to perform. This site acts as a central hub for my work, projects, and ongoing experiments as I continue learning, building, and refining my craft.</p>
     </div>
+
     <!-- Live Timer Widget -->
     <div class="clock-widget fade-in">
         <span class="clock-label">Adam's Live Time Zone</span>
@@ -177,6 +191,7 @@
         <p>Let’s turn your ideas into clean, high-performing online experiences.</p>
         <a href="mailto:info@khalidak.site" class="btn">Start Your Project</a>
     </div>
+
     <div class="roles fade-in" id="roles">
         <h3>Digital Creator & Agency Founder</h3>
         <p>Building effective web experiences, branding, and automation systems for brands and creators.</p>
@@ -187,6 +202,7 @@
         <h3>Automation & Growth Strategist</h3>
         <p>Helping businesses implement systems that streamline operations and drive sustainable growth.</p>
     </div>
+
     <div class="newsletter fade-in">
         <h2>Get the Latest</h2>
         <p>Get updates on new projects, tips, and insights from my experiments in digital creation.</p>
@@ -195,15 +211,18 @@
             <button type="submit">Subscribe</button>
         </form>
     </div>
+
     <footer class="fade-in">
         <h3>Created by Adam Khalid Kaina</h3>
         <p><a href="mailto:info@khalidak.site">info@khalidak.site</a></p>
         <p><a href="terms.html" target="_blank">Terms of Service & Privacy Policy</a></p>
     </footer>
+
     <!-- Back to Top Button -->
     <div class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
         ↑↑↑
     </div>
+
     <!-- AI Chat Bot -->
     <div class="chatbot-toggle" onclick="toggleChatbot()">✨</div>
     <div class="chatbot" id="chatbot">
@@ -216,6 +235,7 @@
             <button onclick="sendMessage()">Send</button>
         </div>
     </div>
+
     <script>
         function updateClock() {
             const now = new Date();
@@ -224,22 +244,27 @@
         }
         setInterval(updateClock, 1000);
         updateClock();
+
         function toggleMenu() {
             const menuIcons = document.getElementById('menu-icons');
             menuIcons.style.display = menuIcons.style.display === 'flex' ? 'none' : 'flex';
         }
+
         window.addEventListener('scroll', () => {
             const backToTop = document.querySelector('.back-to-top');
             backToTop.style.display = window.scrollY > 300 ? 'flex' : 'none';
         });
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => entry.isIntersecting && entry.target.classList.add('visible'));
         }, { threshold: 0.1 });
         document.querySelectorAll('.fade-in').forEach(elem => observer.observe(elem));
+
         function toggleChatbot() {
             const chatbot = document.getElementById('chatbot');
             chatbot.style.display = chatbot.style.display === 'flex' ? 'none' : 'flex';
         }
+
         function sendMessage() {
             const input = document.getElementById('chatbot-input');
             if (!input.value.trim()) return;
@@ -255,6 +280,7 @@
             body.scrollTop = body.scrollHeight;
             input.value = '';
         }
+
         function getBotResponse(message) {
             if (message.includes('hello') || message.includes('hi')) return 'Hi! Welcome to Adam Khalid Kaina\'s site. How can I assist you?';
             if (message.includes('project') || message.includes('start')) return 'Great! Click "Start Your Project" or email info@khalidak.site to discuss your ideas.';
