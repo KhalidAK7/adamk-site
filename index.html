@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         html { scroll-behavior: smooth; }
-        body { margin: 0; font-family: 'Inter', sans-serif; background: #ffffff; color: #000; line-height: 1.8; padding: 100px 20px 100px; text-align: center; }
+        body { margin: 0; font-family: 'Inter', sans-serif; background: #ffffff; color: #000; line-height: 1.8; padding: 100px 20px 60px; text-align: center; }
         .container { max-width: 900px; margin: 0 auto; text-align: left; padding-left: 20px; }
         h1 { font-size: 3rem; margin-bottom: 20px; font-weight: 700; color: #000; }
         p.bio { max-width: 800px; font-size: 1.2rem; margin-bottom: 60px; color: #000; font-style: italic; font-weight: 500; }
@@ -93,13 +93,13 @@
         .site-logo img { position: fixed; top: 20px; left: 20px; height: 100px; z-index: 999; transition: opacity 0.3s; }
         .site-logo:hover img { opacity: 0.8; }
 
-        /* Mobile fixes - only apply on small screens */
+        /* Mobile optimizations - only apply on small screens */
         @media (max-width: 768px) {
             body { padding-top: 80px; padding-bottom: 100px; }
-            .site-logo img { height: 70px; top: 15px; left: 15px; }
+            .site-logo img { height: 70px !important; top: 15px; left: 15px; }
             .contact-widget { padding: 12px 30px; font-size: 0.9rem; top: 15px; right: 15px; }
             .menu-toggle { padding: 10px 40px; font-size: 1rem; top: 15px; }
-            /* Social icons: fixed at bottom, horizontal row, centered */
+            /* Social icons: fixed at bottom center, horizontal row */
             .social-icons { 
                 position: fixed; 
                 top: auto; 
@@ -110,7 +110,8 @@
                 gap: 15px; 
             }
             .social-icon { width: 45px; height: 45px; font-size: 1.2rem; }
-            .back-to-top { bottom: 90px; left: 50%; transform: translateX(-50%); }
+            /* Back-to-top: back to bottom left on mobile */
+            .back-to-top { bottom: 30px; left: 30px; transform: none; }
             .chatbot-toggle { bottom: 20px; right: 20px; }
         }
     </style>
@@ -292,6 +293,5 @@
     </script>
 </body>
 </html>
-
 
 
