@@ -5,37 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>adamk.site</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for real social icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        /* Smooth scroll behavior */
-        html {
-            scroll-behavior: smooth;
-        }
-       
+        html { scroll-behavior: smooth; }
         body { margin: 0; font-family: 'Inter', sans-serif; background: #ffffff; color: #000; line-height: 1.8; padding: 100px 20px 60px; text-align: center; }
         .container { max-width: 900px; margin: 0 auto; text-align: left; padding-left: 20px; }
         h1 { font-size: 3rem; margin-bottom: 20px; font-weight: 700; color: #000; }
         p.bio { max-width: 800px; font-size: 1.2rem; margin-bottom: 60px; color: #000; font-style: italic; font-weight: 500; }
        
-        /* Fade-in animations for main sections */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
        
-        /* Clock Widget - Pill shaped white box, hover only on timer */
         .clock-widget { display: inline-block; margin: 60px auto; }
         .clock-label { display: block; font-weight: bold; font-size: 1.7rem; margin-bottom: 8px; }
         .clock-timer { background: #fff; padding: 15px 40px; border-radius: 50px; font-size: 1.8rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #ddd; transition: all 0.3s ease; cursor: default; }
         .clock-timer:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.15); transform: translateY(-5px); }
        
-        /* New Agency Promo Card - Full-width, between timer and 3 cards */
         .agency-promo { max-width: 1200px; margin: 80px auto; background: #f9f9f9; border: 1px solid #ddd; border-radius: 20px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
         .agency-promo:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
         .agency-promo img { width: 100%; height: auto; display: block; }
@@ -52,51 +37,30 @@
         .card p { opacity: 0.8; margin-bottom: 20px; color: #444; }
         .card a { color: #007bff; text-decoration: none; font-weight: 600; font-size: 1.1rem; }
        
-        /* Yellow Curvy Widgets - Brighter golden yellow with black text */
-        .yellow-widget {
-            display: inline-block;
-            background: #d4af37;
-            color: #000 !important;
-            padding: 15px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            margin: 10px;
-            transition: all 0.3s;
-        }
-        .yellow-widget:hover {
-            background: #c19a2c;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-        }
+        .yellow-widget { display: inline-block; background: #d4af37; color: #000 !important; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 600; margin: 10px; transition: all 0.3s; }
+        .yellow-widget:hover { background: #c19a2c; transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0,0,0,0.15); }
        
-        /* Contact Box Widget - Pill shaped, dark grey, with hover */
         .contact-widget { position: fixed; top: 20px; right: 20px; background: #222; color: #fff; padding: 15px 40px; border-radius: 50px; font-size: 1rem; z-index: 999; box-shadow: 0 4px 15px rgba(0,0,0,0.1); cursor: pointer; transition: all 0.3s ease; }
         .contact-widget:hover { background: #444; box-shadow: 0 8px 25px rgba(0,0,0,0.2); transform: translateY(-3px); }
        
-        /* Social Icons Column - Spaced below contact */
         .social-icons { position: fixed; top: 100px; right: 20px; display: flex; flex-direction: column; gap: 14px; z-index: 999; }
         .social-icon { width: 45px; height: 45px; background: #111; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.3rem; text-decoration: none; transition: background 0.3s; }
         .social-icon:hover { background: #333; }
        
-        /* Top MENU Pill Button - Fixed at top center */
         .menu-toggle { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: #fff; color: #000; padding: 12px 50px; border-radius: 50px; font-weight: bold; font-size: 1.2rem; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 1px solid #ddd; transition: all 0.3s; z-index: 998; }
         .menu-toggle:hover { background: #f0f0f0; box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
        
-        /* Menu Icons - Fixed at top center, horizontal row with close icon at end */
         .menu-icons { position: fixed; top: 80px; left: 50%; transform: translateX(-50%); display: none; flex-direction: row; gap: 20px; z-index: 997; align-items: center; }
         .menu-icon { width: 60px; height: 60px; background: #222; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; text-decoration: none; transition: all 0.3s; }
         .menu-icon:hover { background: #444; transform: scale(1.1); }
         .menu-close { background: #c00; }
         .menu-close:hover { background: #f00; }
        
-        /* Back to Top Button - Bottom left, dark grey circle, appears on scroll */
         .back-to-top { position: fixed; bottom: 30px; left: 30px; background: #222; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: none; align-items: center; justify-content: center; font-size: 1.8rem; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 998; transition: all 0.3s; }
         .back-to-top:hover { background: #444; transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
        
         .cta { max-width: 800px; margin: 120px auto; text-align: center; }
         .cta h2 { font-size: 2.2rem; margin-bottom: 20px; color: #000; font-weight: bold; }
-        /* Start Your Project button dark grey */
         .btn { display: inline-block; background: #222; color: #fff; padding: 18px 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; margin-top: 20px; border-radius: 50px; transition: background 0.3s; }
         .btn:hover { background: #444; }
        
@@ -114,7 +78,6 @@
         footer a:hover { text-decoration: underline; }
         a { color: #007bff; }
        
-        /* Chat Bot Styles - Dark grey toggle with 4-pointed star AI icon */
         .chatbot { position: fixed; bottom: 20px; right: 20px; width: 300px; background: #fff; border: 1px solid #ddd; box-shadow: 0 0 10px rgba(0,0,0,0.1); display: none; flex-direction: column; z-index: 1000; }
         .chatbot-header { background: #222; color: #fff; padding: 10px; text-align: center; cursor: pointer; }
         .chatbot-body { padding: 10px; height: 300px; overflow-y: auto; background: #f9f9f9; display: flex; flex-direction: column; }
@@ -127,17 +90,19 @@
         .user-message { background: #e0e0e0; color: #000; align-self: flex-end; margin-left: auto; }
         .bot-message { background: #222; color: #fff; align-self: flex-start; }
         
-        /* Top Left Logo - Fixed, enlarged */
-        .site-logo img {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            height: 100px;
-            z-index: 999;
-            transition: opacity 0.3s;
-        }
-        .site-logo:hover img {
-            opacity: 0.8;
+        .site-logo img { position: fixed; top: 20px; left: 20px; height: 100px; z-index: 999; transition: opacity 0.3s; }
+        .site-logo:hover img { opacity: 0.8; }
+
+        /* Mobile optimizations - only apply on small screens */
+        @media (max-width: 768px) {
+            body { padding-top: 80px; }
+            .site-logo img { height: 70px !important; top: 15px; left: 15px; }
+            .contact-widget { padding: 12px 30px; font-size: 0.9rem; top: 15px; right: 15px; }
+            .menu-toggle { padding: 10px 40px; font-size: 1rem; top: 15px; }
+            .social-icons { position: fixed; top: auto; bottom: 100px; right: 15px; left: 15px; flex-direction: row; justify-content: center; gap: 12px; }
+            .social-icon { width: 40px; height: 40px; font-size: 1.1rem; }
+            .back-to-top { bottom: 80px; left: 15px; }
+            .chatbot-toggle { bottom: 15px; right: 15px; }
         }
     </style>
 </head>
@@ -181,7 +146,7 @@
 
     <!-- Digital Marketing Agency Promo Card -->
     <div class="agency-promo fade-in">
-        <img src="agency-image.jpg" alt="Digital Marketing Agency">
+        <img src="https://files.catbox.moe/9b8k3p.jpg" alt="Digital Marketing Agency">
         <div class="agency-promo-content">
             <h3>Digital Marketing Agency</h3>
             <p>Advanced digital marketing solutions powered by AI, data-driven strategies, and creative execution to grow your brand online.</p>
@@ -252,7 +217,6 @@
         </div>
     </div>
     <script>
-        // Live clock
         function updateClock() {
             const now = new Date();
             const time = now.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
@@ -260,38 +224,21 @@
         }
         setInterval(updateClock, 1000);
         updateClock();
-        // Menu Toggle
         function toggleMenu() {
             const menuIcons = document.getElementById('menu-icons');
-            if (menuIcons.style.display === 'flex') {
-                menuIcons.style.display = 'none';
-            } else {
-                menuIcons.style.display = 'flex';
-            }
+            menuIcons.style.display = menuIcons.style.display === 'flex' ? 'none' : 'flex';
         }
-        // Back to Top Button - Show when scrolled down
-        const backToTop = document.querySelector('.back-to-top');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                backToTop.style.display = 'flex';
-            } else {
-                backToTop.style.display = 'none';
-            }
+            const backToTop = document.querySelector('.back-to-top');
+            backToTop.style.display = window.scrollY > 300 ? 'flex' : 'none';
         });
-        // Fade-in animation on scroll
-        const fadeElems = document.querySelectorAll('.fade-in');
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
+            entries.forEach(entry => entry.isIntersecting && entry.target.classList.add('visible'));
         }, { threshold: 0.1 });
-        fadeElems.forEach(elem => observer.observe(elem));
-        // Chat Bot
+        document.querySelectorAll('.fade-in').forEach(elem => observer.observe(elem));
         function toggleChatbot() {
             const chatbot = document.getElementById('chatbot');
-            chatbot.style.display = (chatbot.style.display === 'flex') ? 'none' : 'flex';
+            chatbot.style.display = chatbot.style.display === 'flex' ? 'none' : 'flex';
         }
         function sendMessage() {
             const input = document.getElementById('chatbot-input');
@@ -319,7 +266,6 @@
     </script>
 </body>
 </html>
-
 
 
 
