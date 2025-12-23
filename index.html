@@ -1,238 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-&nbsp;&nbsp;&nbsp;&nbsp;<meta charset="UTF-8">
-&nbsp;&nbsp;&nbsp;&nbsp;<meta name="viewport" content="width=device-width, initial-scale=1.0">
-&nbsp;&nbsp;&nbsp;&nbsp;<title>adamk.site</title>
-&nbsp;&nbsp;&nbsp;&nbsp;<!-- Favicon added here -->
-&nbsp;&nbsp;&nbsp;&nbsp;<link rel="icon" href="favicon.ico" type="image/x-icon">
-&nbsp;&nbsp;&nbsp;&nbsp;<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-&nbsp;&nbsp;&nbsp;&nbsp;<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
-&nbsp;&nbsp;&nbsp;&nbsp;<style>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;html { scroll-behavior: smooth; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;body { margin: 0; font-family: 'Inter', sans-serif; background: #ffffff; color: #000; line-height: 1.8; padding: 100px 20px 60px; text-align: center; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.container { max-width: 900px; margin: 0 auto; text-align: left; padding-left: 20px; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;h1 { font-size: 3rem; margin-bottom: 20px; font-weight: 700; color: #000; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p.bio { max-width: 800px; font-size: 1.2rem; margin-bottom: 60px; color: #000; font-style: italic; font-weight: 500; }
-&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.fade-in.visible { opacity: 1; transform: translateY(0); }
-&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.clock-widget { display: inline-block; margin: 60px auto; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.clock-label { display: block; font-weight: bold; font-size: 1.7rem; margin-bottom: 8px; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.clock-timer { background: #fff; padding: 15px 40px; border-radius: 50px; font-size: 1.8rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #ddd; transition: all 0.3s ease; cursor: default; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.clock-timer:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.15); transform: translateY(-5px); }
-&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.agency-promo { max-width: 1200px; margin: 80px auto; background: #f9f9f9; border: 1px solid #ddd; border-radius: 20px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.agency-promo:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.agency-promo img { width: 100%; height: auto; display: block; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.agency-promo-content { padding: 40px; text-align: center; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.agency-promo h3 { font-size: 2.2rem; margin-bottom: 20px; color: #000; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.agency-promo p { font-size: 1.2rem; margin-bottom: 30px; color: #444; opacity: 0.9; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.agency-promo .btn { display: inline-block; background: #222; color: #fff; padding: 18px 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; border-radius: 50px; transition: background 0.3s; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.agency-promo .btn:hover { background: #444; }
-&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 1200px; margin: 80px auto; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.card { background: #f9f9f9; padding: 50px 30px; transition: transform 0.3s; border: 1px solid #ddd; border-radius: 20px; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.card:hover { transform: translateY(-10px); }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.card h3 { font-size: 1.8rem; margin-bottom: 15px; color: #000; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.card p { opacity: 0.8; margin-bottom: 20px; color: #444; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.card a { color: #007bff; text-decoration: none; font-weight: 600; font-size: 1.1rem; }
-&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.yellow-widget { display: inline-block; background: #d4af37; color: #000 !important; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 600; margin: 10px; transition: all 0.3s; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.yellow-widget:hover { background: #c19a2c; transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0,0,0,0.15); }
-&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.contact-widget { position: fixed; top: 20px; right: 20px; background: #222; color: #fff; padding: 15px 40px; border-radius: 50px; font-size: 1rem; z-index: 999; box-shadow: 0 4px 15px rgba(0,0,0,0.1); cursor: pointer; transition: all 0.3s ease; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.contact-widget:hover { background: #444; box-shadow: 0 8px 25px rgba(0,0,0,0.2); transform: translateY(-3px); }
-&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.social-icons { position: fixed; top: 100px; right: 20px; display: flex; flex-direction: column; gap: 14px; z-index: 999; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.social-icon { width: 45px; height: 45px; background: #111; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.3rem; text-decoration: none; transition: background 0.3s; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.social-icon:hover { background: #333; }
-&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.menu-toggle { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: #fff; color: #000; padding: 12px 50px; border-radius: 50px; font-weight: bold; font-size: 1.2rem; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 1px solid #ddd; transition: all 0.3s; z-index: 998; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.menu-toggle:hover { background: #f0f0f0; box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
-&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.menu-icons { position: fixed; top: 80px; left: 50%; transform: translateX(-50%); display: none; flex-direction: row; gap: 20px; z-index: 997; align-items: center; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.menu-icon { width: 60px; height: 60px; background: #222; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; text-decoration: none; transition: all 0.3s; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.menu-icon:hover { background: #444; transform: scale(1.1); }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.menu-close { background: #c00; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.menu-close:hover { background: #f00; }
-&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.back-to-top { position: fixed; bottom: 30px; left: 30px; background: #222; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: none; align-items: center; justify-content: center; font-size: 1.8rem; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 998; transition: all 0.3s; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.back-to-top:hover { background: #444; transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
-&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.cta { max-width: 800px; margin: 120px auto; text-align: center; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.cta h2 { font-size: 2.2rem; margin-bottom: 20px; color: #000; font-weight: bold; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.btn { display: inline-block; background: #222; color: #fff; padding: 18px 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; margin-top: 20px; border-radius: 50px; transition: background 0.3s; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.btn:hover { background: #444; }
-&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.roles { max-width: 1000px; margin: 120px auto; text-align: center; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.roles h3 { font-size: 1.8rem; margin: 40px 0 20px; color: #000; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.roles p { color: #444; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hr { border: none; border-top: 1px solid #ddd; margin: 60px 0; }
-&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.newsletter { max-width: 600px; margin: 100px auto; text-align: center; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.newsletter input { padding: 15px; width: 70%; background: #f9f9f9; border: 1px solid #ddd; color: #000; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.newsletter button { padding: 15px 30px; background: #222; color: #fff; border: none; font-weight: bold; cursor: pointer; }
-&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;footer { margin-top: 150px; opacity: 0.7; color: #444; text-align: center; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;footer a { color: #222; text-decoration: none; font-weight: 600; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;footer a:hover { text-decoration: underline; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a { color: #007bff; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.site-logo img { position: fixed; top: 20px; left: 20px; height: 100px; z-index: 999; transition: opacity 0.3s; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.site-logo:hover img { opacity: 0.8; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* Mobile optimizations - only apply on small screens */
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@media (max-width: 768px) {
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;body { padding-top: 80px; padding-bottom: 100px; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.site-logo img { height: 70px !important; top: 15px; left: 15px; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.contact-widget { padding: 12px 30px; font-size: 0.9rem; top: 15px; right: 15px; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.menu-toggle { padding: 10px 40px; font-size: 1rem; top: 15px; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* Social icons: fixed at bottom center, horizontal row */
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.social-icons {
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;position: fixed;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;top: auto;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bottom: 20px;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;left: 50%;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transform: translateX(-50%);
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;flex-direction: row;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gap: 15px;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.social-icon { width: 45px; height: 45px; font-size: 1.2rem; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* Back-to-top: bottom left on mobile */
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.back-to-top { bottom: 30px; left: 30px; transform: none; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
-&nbsp;&nbsp;&nbsp;&nbsp;</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>adamk.site</title>
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        html { scroll-behavior: smooth; }
+        body { margin: 0; font-family: 'Inter', sans-serif; background: #ffffff; color: #000; line-height: 1.8; padding: 100px 20px 60px; text-align: center; }
+        .container { max-width: 900px; margin: 0 auto; text-align: left; padding-left: 20px; }
+        h1 { font-size: 3rem; margin-bottom: 20px; font-weight: 700; color: #000; }
+        p.bio { max-width: 800px; font-size: 1.2rem; margin-bottom: 60px; color: #000; font-style: italic; font-weight: 500; }
+     
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+     
+        .clock-widget { display: inline-block; margin: 60px auto; }
+        .clock-label { display: block; font-weight: bold; font-size: 1.7rem; margin-bottom: 8px; }
+        .clock-timer { background: #fff; padding: 15px 40px; border-radius: 50px; font-size: 1.8rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #ddd; transition: all 0.3s ease; cursor: default; }
+        .clock-timer:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.15); transform: translateY(-5px); }
+     
+        .agency-promo { max-width: 1200px; margin: 80px auto; background: #f9f9f9; border: 1px solid #ddd; border-radius: 20px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
+        .agency-promo:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .agency-promo img { width: 100%; height: auto; display: block; }
+        .agency-promo-content { padding: 40px; text-align: center; }
+        .agency-promo h3 { font-size: 2.2rem; margin-bottom: 20px; color: #000; }
+        .agency-promo p { font-size: 1.2rem; margin-bottom: 30px; color: #444; opacity: 0.9; }
+        .agency-promo .btn { display: inline-block; background: #222; color: #fff; padding: 18px 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; border-radius: 50px; transition: background 0.3s; }
+        .agency-promo .btn:hover { background: #444; }
+     
+        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 1200px; margin: 80px auto; }
+        .card { background: #f9f9f9; padding: 50px 30px; transition: transform 0.3s; border: 1px solid #ddd; border-radius: 20px; }
+        .card:hover { transform: translateY(-10px); }
+        .card h3 { font-size: 1.8rem; margin-bottom: 15px; color: #000; }
+        .card p { opacity: 0.8; margin-bottom: 20px; color: #444; }
+        .card a { color: #007bff; text-decoration: none; font-weight: 600; font-size: 1.1rem; }
+     
+        .yellow-widget { display: inline-block; background: #d4af37; color: #000 !important; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 600; margin: 10px; transition: all 0.3s; }
+        .yellow-widget:hover { background: #c19a2c; transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0,0,0,0.15); }
+     
+        .contact-widget { position: fixed; top: 20px; right: 20px; background: #222; color: #fff; padding: 15px 40px; border-radius: 50px; font-size: 1rem; z-index: 999; box-shadow: 0 4px 15px rgba(0,0,0,0.1); cursor: pointer; transition: all 0.3s ease; }
+        .contact-widget:hover { background: #444; box-shadow: 0 8px 25px rgba(0,0,0,0.2); transform: translateY(-3px); }
+     
+        .social-icons { position: fixed; top: 100px; right: 20px; display: flex; flex-direction: column; gap: 14px; z-index: 999; }
+        .social-icon { width: 45px; height: 45px; background: #111; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.3rem; text-decoration: none; transition: background 0.3s; }
+        .social-icon:hover { background: #333; }
+     
+        .menu-toggle { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: #fff; color: #000; padding: 12px 50px; border-radius: 50px; font-weight: bold; font-size: 1.2rem; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 1px solid #ddd; transition: all 0.3s; z-index: 998; }
+        .menu-toggle:hover { background: #f0f0f0; box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+     
+        .menu-icons { position: fixed; top: 80px; left: 50%; transform: translateX(-50%); display: none; flex-direction: row; gap: 20px; z-index: 997; align-items: center; }
+        .menu-icon { width: 60px; height: 60px; background: #222; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; text-decoration: none; transition: all 0.3s; }
+        .menu-icon:hover { background: #444; transform: scale(1.1); }
+        .menu-close { background: #c00; }
+        .menu-close:hover { background: #f00; }
+     
+        .back-to-top { position: fixed; bottom: 30px; left: 30px; background: #222; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: none; align-items: center; justify-content: center; font-size: 1.8rem; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 998; transition: all 0.3s; }
+        .back-to-top:hover { background: #444; transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+     
+        .cta { max-width: 800px; margin: 120px auto; text-align: center; }
+        .cta h2 { font-size: 2.2rem; margin-bottom: 20px; color: #000; font-weight: bold; }
+        .btn { display: inline-block; background: #222; color: #fff; padding: 18px 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; margin-top: 20px; border-radius: 50px; transition: background 0.3s; }
+        .btn:hover { background: #444; }
+     
+        .roles { max-width: 1000px; margin: 120px auto; text-align: center; }
+        .roles h3 { font-size: 1.8rem; margin: 40px 0 20px; color: #000; }
+        .roles p { color: #444; }
+        hr { border: none; border-top: 1px solid #ddd; margin: 60px 0; }
+     
+        .newsletter { max-width: 600px; margin: 100px auto; text-align: center; }
+        .newsletter input { padding: 15px; width: 70%; background: #f9f9f9; border: 1px solid #ddd; color: #000; }
+        .newsletter button { padding: 15px 30px; background: #222; color: #fff; border: none; font-weight: bold; cursor: pointer; }
+     
+        footer { margin-top: 150px; opacity: 0.7; color: #444; text-align: center; }
+        footer a { color: #222; text-decoration: none; font-weight: 600; }
+        footer a:hover { text-decoration: underline; }
+        a { color: #007bff; }
+     
+        .site-logo img { position: fixed; top: 20px; left: 20px; height: 100px; z-index: 999; transition: opacity 0.3s; }
+        .site-logo:hover img { opacity: 0.8; }
+        /* Mobile optimizations - only apply on small screens */
+        @media (max-width: 768px) {
+            body { padding-top: 80px; padding-bottom: 100px; }
+            .site-logo img { height: 70px !important; top: 15px; left: 15px; }
+            .contact-widget { padding: 12px 30px; font-size: 0.9rem; top: 15px; right: 15px; }
+            .menu-toggle { padding: 10px 40px; font-size: 1rem; top: 15px; }
+            /* Social icons: fixed at bottom center, horizontal row */
+            .social-icons {
+                position: fixed;
+                top: auto;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                flex-direction: row;
+                gap: 15px;
+            }
+            .social-icon { width: 45px; height: 45px; font-size: 1.2rem; }
+            /* Back-to-top: bottom left on mobile */
+            .back-to-top { bottom: 30px; left: 30px; transform: none; }
+        }
+    </style>
 </head>
 <body>
-&nbsp;&nbsp;&nbsp;&nbsp;<!-- Top Left Logo -->
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="site-logo">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="logo.png" alt="آدم | AK">
-&nbsp;&nbsp;&nbsp;&nbsp;</a>
-&nbsp;&nbsp;&nbsp;&nbsp;<!-- Contact Box Widget -->
-&nbsp;&nbsp;&nbsp;&nbsp;<div class="contact-widget" onclick="window.location.href='mailto:info@khalidak.site'">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contact
-&nbsp;&nbsp;&nbsp;&nbsp;</div>
-&nbsp;&nbsp;&nbsp;&nbsp;<!-- Social Icons -->
-&nbsp;&nbsp;&nbsp;&nbsp;<div class="social-icons">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="social-icon" title="PayPal"><i class="fab fa-paypal"></i></a>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://discord.com/users/731919513150554183" target="_blank" class="social-icon" title="Discord"><i class="fab fa-discord"></i></a>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="social-icon" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://revolut.me/khalid_ak" class="social-icon" title="Revolut"><i class="fas fa-money-bill-wave"></i></a>
-&nbsp;&nbsp;&nbsp;&nbsp;</div>
-&nbsp;&nbsp;&nbsp;&nbsp;<!-- Top MENU Pill Button -->
-&nbsp;&nbsp;&nbsp;&nbsp;<div class="menu-toggle" onclick="toggleMenu()">MENU</div>
-&nbsp;&nbsp;&nbsp;&nbsp;<!-- Menu Icons -->
-&nbsp;&nbsp;&nbsp;&nbsp;<div class="menu-icons" id="menu-icons">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#portfolio" class="menu-icon" title="Portfolio"><i class="fas fa-briefcase"></i></a>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#agency" class="menu-icon" title="Agency"><i class="fas fa-building"></i></a>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#contact" class="menu-icon" title="Contact"><i class="fas fa-envelope"></i></a>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#roles" class="menu-icon" title="Roles"><i class="fas fa-user-tie"></i></a>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a onclick="toggleMenu()" class="menu-icon menu-close" title="Close Menu"><i class="fas fa-times"></i></a>
-&nbsp;&nbsp;&nbsp;&nbsp;</div>
-&nbsp;&nbsp;&nbsp;&nbsp;<div class="container fade-in">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1>Adam Khalid Kaina</h1>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="bio">I’m Adam, a digital creator and agency founder focused on building clean, effective online experiences. I work across web design, branding, and automation, helping ideas turn into professional systems that are simple, scalable, and built to perform. This site acts as a central hub for my work, projects, and ongoing experiments as I continue learning, building, and refining my craft.</p>
-&nbsp;&nbsp;&nbsp;&nbsp;</div>
-&nbsp;&nbsp;&nbsp;&nbsp;<!-- Live Timer Widget -->
-&nbsp;&nbsp;&nbsp;&nbsp;<div class="clock-widget fade-in">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="clock-label">Adam's Live Time Zone</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="clock-timer" id="time">00:00:00</div>
-&nbsp;&nbsp;&nbsp;&nbsp;</div>
-&nbsp;&nbsp;&nbsp;&nbsp;<!-- Digital Marketing Agency Promo Card -->
-&nbsp;&nbsp;&nbsp;&nbsp;<div class="agency-promo fade-in">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://files.catbox.moe/9b8k3p.jpg" alt="Digital Marketing Agency">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="agency-promo-content">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3>Digital Marketing Agency</h3>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p>Advanced digital marketing solutions powered by AI, data-driven strategies, and creative execution to grow your brand online.</p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://youragency.site" target="_blank" class="btn">Visit Agency</a>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-&nbsp;&nbsp;&nbsp;&nbsp;</div>
-&nbsp;&nbsp;&nbsp;&nbsp;<div class="cards fade-in" id="portfolio">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="card">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3>My Portfolio</h3>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p>Impactful projects in web design, branding, and digital marketing.</p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#portfolio" class="yellow-widget">View My Work</a>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="card" id="agency">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3>My Digital Agency</h3>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p>Helping brands build scalable online systems.</p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://youragency.site" target="_blank" class="yellow-widget">Visit Agency</a>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="card">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3>Client Portal</h3>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p>Access resources, projects, and updates.</p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="yellow-widget">Go to Dashboard</a>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-&nbsp;&nbsp;&nbsp;&nbsp;</div>
-&nbsp;&nbsp;&nbsp;&nbsp;<div class="cta fade-in" id="contact">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h2>Serious about your digital presence? So am I.</h2>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p>Let’s turn your ideas into clean, high-performing online experiences.</p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="mailto:info@khalidak.site" class="btn">Start Your Project</a>
-&nbsp;&nbsp;&nbsp;&nbsp;</div>
-&nbsp;&nbsp;&nbsp;&nbsp;<div class="roles fade-in" id="roles">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3>Digital Creator & Agency Founder</h3>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p>Building effective web experiences, branding, and automation systems for brands and creators.</p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<hr>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3>Web Design & Branding Specialist</h3>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p>Crafting clean, modern designs that are simple, scalable, and performance-focused.</p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<hr>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3>Automation & Growth Strategist</h3>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p>Helping businesses implement systems that streamline operations and drive sustainable growth.</p>
-&nbsp;&nbsp;&nbsp;&nbsp;</div>
-&nbsp;&nbsp;&nbsp;&nbsp;<div class="newsletter fade-in">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h2>Get the Latest</h2>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p>Get updates on new projects, tips, and insights from my experiments in digital creation.</p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<form onsubmit="event.preventDefault(); alert('Subscribed! Thank you.');">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="email" placeholder="Your email">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit">Subscribe</button>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</form>
-&nbsp;&nbsp;&nbsp;&nbsp;</div>
-&nbsp;&nbsp;&nbsp;&nbsp;<footer class="fade-in">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3>Created by Adam Khalid Kaina</h3>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p><a href="mailto:info@khalidak.site">info@khalidak.site</a></p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p><a href="terms.html" target="_blank">Terms of Service & Privacy Policy</a></p>
-&nbsp;&nbsp;&nbsp;&nbsp;</footer>
-&nbsp;&nbsp;&nbsp;&nbsp;<!-- Back to Top Button -->
-&nbsp;&nbsp;&nbsp;&nbsp;<div class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↑↑↑
-&nbsp;&nbsp;&nbsp;&nbsp;</div>
-&nbsp;&nbsp;&nbsp;&nbsp;<!-- tawk.to Live Chat Script -->
-&nbsp;&nbsp;&nbsp;&nbsp;<!--Start of Tawk.to Script-->
-&nbsp;&nbsp;&nbsp;&nbsp;<script type="text/javascript">
-&nbsp;&nbsp;&nbsp;&nbsp;var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-&nbsp;&nbsp;&nbsp;&nbsp;(function(){
-&nbsp;&nbsp;&nbsp;&nbsp;var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-&nbsp;&nbsp;&nbsp;&nbsp;s1.async=true;
-&nbsp;&nbsp;&nbsp;&nbsp;s1.src='https://embed.tawk.to/6946fa56a83a5d19807b3c4f/1jcuk3p2e';
-&nbsp;&nbsp;&nbsp;&nbsp;s1.charset='UTF-8';
-&nbsp;&nbsp;&nbsp;&nbsp;s1.setAttribute('crossorigin','*');
-&nbsp;&nbsp;&nbsp;&nbsp;s0.parentNode.insertBefore(s1,s0);
-&nbsp;&nbsp;&nbsp;&nbsp;})();
-&nbsp;&nbsp;&nbsp;&nbsp;</script>
-&nbsp;&nbsp;&nbsp;&nbsp;<!--End of Tawk.to Script-->
-&nbsp;&nbsp;&nbsp;&nbsp;<script>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function updateClock() {
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const now = new Date();
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const time = now.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.getElementById('time').textContent = time;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setInterval(updateClock, 1000);
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;updateClock();
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function toggleMenu() {
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const menuIcons = document.getElementById('menu-icons');
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;menuIcons.style.display = menuIcons.style.display === 'flex' ? 'none' : 'flex';
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window.addEventListener('scroll', () => {
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const backToTop = document.querySelector('.back-to-top');
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;backToTop.style.display = window.scrollY > 300 ? 'flex' : 'none';
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const observer = new IntersectionObserver((entries) => {
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;entries.forEach(entry => entry.isIntersecting && entry.target.classList.add('visible'));
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}, { threshold: 0.1 });
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.querySelectorAll('.fade-in').forEach(elem => observer.observe(elem));
-&nbsp;&nbsp;&nbsp;&nbsp;</script>
+    <!-- Top Left Logo -->
+    <a href="#" class="site-logo">
+        <img src="logo.png" alt="آدم | AK">
+    </a>
+    <!-- Contact Box Widget -->
+    <div class="contact-widget" onclick="window.location.href='mailto:info@khalidak.site'">
+        Contact
+    </div>
+    <!-- Social Icons -->
+    <div class="social-icons">
+        <a href="#" class="social-icon" title="PayPal"><i class="fab fa-paypal"></i></a>
+        <a href="https://discord.com/users/731919513150554183" target="_blank" class="social-icon" title="Discord"><i class="fab fa-discord"></i></a>
+        <a href="#" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-icon" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://revolut.me/khalid_ak" class="social-icon" title="Revolut"><i class="fas fa-money-bill-wave"></i></a>
+    </div>
+    <!-- Top MENU Pill Button -->
+    <div class="menu-toggle" onclick="toggleMenu()">MENU</div>
+    <!-- Menu Icons -->
+    <div class="menu-icons" id="menu-icons">
+        <a href="#portfolio" class="menu-icon" title="Portfolio"><i class="fas fa-briefcase"></i></a>
+        <a href="#agency" class="menu-icon" title="Agency"><i class="fas fa-building"></i></a>
+        <a href="#contact" class="menu-icon" title="Contact"><i class="fas fa-envelope"></i></a>
+        <a href="#roles" class="menu-icon" title="Roles"><i class="fas fa-user-tie"></i></a>
+        <a onclick="toggleMenu()" class="menu-icon menu-close" title="Close Menu"><i class="fas fa-times"></i></a>
+    </div>
+    <div class="container fade-in">
+        <h1>Adam Khalid Kaina</h1>
+        <p class="bio">I’m Adam, a digital creator and agency founder focused on building clean, effective online experiences. I work across web design, branding, and automation, helping ideas turn into professional systems that are simple, scalable, and built to perform. This site acts as a central hub for my work, projects, and ongoing experiments as I continue learning, building, and refining my craft.</p>
+    </div>
+    <!-- Live Timer Widget -->
+    <div class="clock-widget fade-in">
+        <span class="clock-label">Adam's Live Time Zone</span>
+        <div class="clock-timer" id="time">00:00:00</div>
+    </div>
+    <!-- Digital Marketing Agency Promo Card -->
+    <div class="agency-promo fade-in">
+        <img src="https://files.catbox.moe/9b8k3p.jpg" alt="Digital Marketing Agency">
+        <div class="agency-promo-content">
+            <h3>Digital Marketing Agency</h3>
+            <p>Advanced digital marketing solutions powered by AI, data-driven strategies, and creative execution to grow your brand online.</p>
+            <a href="https://youragency.site" target="_blank" class="btn">Visit Agency</a>
+        </div>
+    </div>
+    <div class="cards fade-in" id="portfolio">
+        <div class="card">
+            <h3>My Portfolio</h3>
+            <p>Impactful projects in web design, branding, and digital marketing.</p>
+            <a href="#portfolio" class="yellow-widget">View My Work</a>
+        </div>
+        <div class="card" id="agency">
+            <h3>My Digital Agency</h3>
+            <p>Helping brands build scalable online systems.</p>
+            <a href="https://youragency.site" target="_blank" class="yellow-widget">Visit Agency</a>
+        </div>
+        <div class="card">
+            <h3>Client Portal</h3>
+            <p>Access resources, projects, and updates.</p>
+            <a href="#" class="yellow-widget">Go to Dashboard</a>
+        </div>
+    </div>
+    <div class="cta fade-in" id="contact">
+        <h2>Serious about your digital presence? So am I.</h2>
+        <p>Let’s turn your ideas into clean, high-performing online experiences.</p>
+        <a href="mailto:info@khalidak.site" class="btn">Start Your Project</a>
+    </div>
+    <div class="roles fade-in" id="roles">
+        <h3>Digital Creator & Agency Founder</h3>
+        <p>Building effective web experiences, branding, and automation systems for brands and creators.</p>
+        <hr>
+        <h3>Web Design & Branding Specialist</h3>
+        <p>Crafting clean, modern designs that are simple, scalable, and performance-focused.</p>
+        <hr>
+        <h3>Automation & Growth Strategist</h3>
+        <p>Helping businesses implement systems that streamline operations and drive sustainable growth.</p>
+    </div>
+    <div class="newsletter fade-in">
+        <h2>Get the Latest</h2>
+        <p>Get updates on new projects, tips, and insights from my experiments in digital creation.</p>
+        <form onsubmit="event.preventDefault(); alert('Subscribed! Thank you.');">
+            <input type="email" placeholder="Your email">
+            <button type="submit">Subscribe</button>
+        </form>
+    </div>
+    <footer class="fade-in">
+        <h3>Created by Adam Khalid Kaina</h3>
+        <p><a href="mailto:info@khalidak.site">info@khalidak.site</a></p>
+        <p><a href="terms.html" target="_blank">Terms of Service & Privacy Policy</a></p>
+    </footer>
+    <!-- Back to Top Button -->
+    <div class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        ↑↑↑
+    </div>
+    <!-- tawk.to Live Chat Script -->
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/6946fa56a83a5d19807b3c4f/1jcuk3p2e';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const time = now.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            document.getElementById('time').textContent = time;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+        function toggleMenu() {
+            const menuIcons = document.getElementById('menu-icons');
+            menuIcons.style.display = menuIcons.style.display === 'flex' ? 'none' : 'flex';
+        }
+        window.addEventListener('scroll', () => {
+            const backToTop = document.querySelector('.back-to-top');
+            backToTop.style.display = window.scrollY > 300 ? 'flex' : 'none';
+        });
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => entry.isIntersecting && entry.target.classList.add('visible'));
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(elem => observer.observe(elem));
+    </script>
 </body>
 </html>
 
