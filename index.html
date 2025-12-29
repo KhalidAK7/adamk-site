@@ -92,7 +92,6 @@
         .yellow-widget { display: inline-block; background: #222; color: #fff; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 600; margin: 10px; transition: all 0.4s ease; }
         .yellow-widget:hover { background: #444; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.6); }
      
-        /* Contact button — glassmorphism + hover */
         .contact-widget { 
             position: fixed; 
             top: 20px; 
@@ -116,7 +115,6 @@
             box-shadow: 0 12px 30px rgba(0,0,0,0.8); 
         }
      
-        /* Social icons — glassmorphism + hover */
         .social-icons { position: fixed; top: 100px; right: 20px; display: flex; flex-direction: column; gap: 14px; z-index: 999; }
         .social-icon { 
             width: 45px; 
@@ -140,7 +138,6 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.7); 
         }
      
-        /* Rest of styles (menu, back-to-top, cta, etc.) — same with glass tweaks */
         .menu-toggle { 
             position: fixed; 
             top: 20px; 
@@ -161,6 +158,7 @@
         }
         .menu-toggle:hover { background: rgba(68,68,68,0.9); transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.8); }
      
+        .menu-icons { position: fixed; top: 80px; left: 50%; transform: translateX(-50%); display: none; flex-direction: row; gap: 20px; z-index: 997; align-items: center; }
         .menu-icon { 
             width: 60px; 
             height: 60px; 
@@ -178,6 +176,8 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.4); 
         }
         .menu-icon:hover { background: rgba(85,85,85,0.9); transform: scale(1.15); box-shadow: 0 10px 25px rgba(0,0,0,0.7); }
+        .menu-close { background: #c00; }
+        .menu-close:hover { background: #f00; }
      
         .back-to-top { 
             position: fixed; 
@@ -201,13 +201,17 @@
         }
         .back-to-top:hover { background: rgba(85,85,85,0.9); transform: translateY(-8px); box-shadow: 0 12px 30px rgba(0,0,0,0.8); }
      
+        .cta { max-width: 800px; margin: 120px auto; text-align: center; }
         .cta h2 { font-size: 2.2rem; margin-bottom: 20px; color: #ffffff; font-weight: bold; text-shadow: 0 3px 12px rgba(0,0,0,0.9); }
-        .btn { display: inline-block; background: #222; color: #fff; padding: 18px 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; margin-top: 20px; border-radius: 50px; transition: all 0.4s ease; }
-        .btn:hover { background: #444; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.6); }
+        .btn { display: inline-block; background: #222; color: #fff; padding: 18px 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; margin-top: 20px; border-radius: 50px; transition: background 0.3s; }
+        .btn:hover { background: #444; }
      
+        .roles { max-width: 1000px; margin: 120px auto; text-align: center; }
         .roles h3 { font-size: 1.8rem; margin: 40px 0 20px; color: #ffffff; text-shadow: 0 2px 8px rgba(0,0,0,0.8); }
+        .roles p { color: #dddddd; }
         hr { border: none; border-top: 1px solid #555; margin: 60px 0; }
      
+        .newsletter { max-width: 600px; margin: 100px auto; text-align: center; }
         .newsletter input { padding: 15px; width: 70%; background: rgba(30,30,30,0.8); border: 1px solid #555; color: #ffffff; backdrop-filter: blur(10px); }
         .newsletter button { padding: 15px 30px; background: #222; color: #fff; border: none; font-weight: bold; cursor: pointer; transition: all 0.4s ease; }
         .newsletter button:hover { background: #444; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.6); }
@@ -233,16 +237,12 @@
     </style>
 </head>
 <body>
-    <!-- Your full body content — same as before -->
-    <!-- Top Left Logo -->
     <a href="#" class="site-logo">
         <img src="logo.png" alt="آدم | AK">
     </a>
-    <!-- Contact Box Widget -->
     <div class="contact-widget" onclick="window.location.href='mailto:info@khalidak.site'">
         Contact
     </div>
-    <!-- Social Icons -->
     <div class="social-icons">
         <a href="#" class="social-icon" title="PayPal"><i class="fab fa-paypal"></i></a>
         <a href="https://discord.com/users/731919513150554183" target="_blank" class="social-icon" title="Discord"><i class="fab fa-discord"></i></a>
@@ -250,7 +250,113 @@
         <a href="#" class="social-icon" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         <a href="https://revolut.me/khalid_ak" class="social-icon" title="Revolut"><i class="fas fa-money-bill-wave"></i></a>
     </div>
-    <!-- MENU, timer, agency promo with agency.jpg, cards, cta, roles, newsletter, footer, back-to-top, tawk.to, script — all same -->
-    <!-- (Full body from your last code) -->
+    <div class="menu-toggle" onclick="toggleMenu()">MENU</div>
+    <div class="menu-icons" id="menu-icons">
+        <a href="#portfolio" class="menu-icon" title="Portfolio"><i class="fas fa-briefcase"></i></a>
+        <a href="#agency" class="menu-icon" title="Agency"><i class="fas fa-building"></i></a>
+        <a href="#contact" class="menu-icon" title="Contact"><i class="fas fa-envelope"></i></a>
+        <a href="#roles" class="menu-icon" title="Roles"><i class="fas fa-user-tie"></i></a>
+        <a onclick="toggleMenu()" class="menu-icon menu-close" title="Close Menu"><i class="fas fa-times"></i></a>
+    </div>
+    <div class="container fade-in">
+        <h1>Adam Khalid Kaina</h1>
+        <p class="bio">I’m Adam, a digital creator and agency founder focused on building clean, effective online experiences. I work across web design, branding, and automation, helping ideas turn into professional systems that are simple, scalable, and built to perform. This site acts as a central hub for my work, projects, and ongoing experiments as I continue learning, building, and refining my craft.</p>
+    </div>
+    <div class="clock-widget fade-in">
+        <span class="clock-label">Adam's Live Time Zone</span>
+        <div class="clock-timer" id="time">00:00:00</div>
+    </div>
+    <div class="agency-promo fade-in">
+        <img src="agency.jpg" alt="Digital Marketing Agency">
+        <div class="agency-promo-content">
+            <h3>Digital Marketing Agency</h3>
+            <p>Advanced digital marketing solutions powered by AI, data-driven strategies, and creative execution to grow your brand online.</p>
+            <a href="https://youragency.site" target="_blank" class="btn">Visit Agency</a>
+        </div>
+    </div>
+    <div class="cards fade-in" id="portfolio">
+        <div class="card">
+            <h3>My Portfolio</h3>
+            <p>Impactful projects in web design, branding, and digital marketing.</p>
+            <a href="#portfolio" class="yellow-widget">View My Work</a>
+        </div>
+        <div class="card" id="agency">
+            <h3>My Digital Agency</h3>
+            <p>Helping brands build scalable online systems.</p>
+            <a href="https://youragency.site" target="_blank" class="yellow-widget">Visit Agency</a>
+        </div>
+        <div class="card">
+            <h3>Client Portal</h3>
+            <p>Access resources, projects, and updates.</p>
+            <a href="#" class="yellow-widget">Go to Dashboard</a>
+        </div>
+    </div>
+    <div class="cta fade-in" id="contact">
+        <h2>Serious about your digital presence? So am I.</h2>
+        <p>Let’s turn your ideas into clean, high-performing online experiences.</p>
+        <a href="mailto:info@khalidak.site" class="btn">Start Your Project</a>
+    </div>
+    <div class="roles fade-in" id="roles">
+        <h3>Digital Creator & Agency Founder</h3>
+        <p>Building effective web experiences, branding, and automation systems for brands and creators.</p>
+        <hr>
+        <h3>Web Design & Branding Specialist</h3>
+        <p>Crafting clean, modern designs that are simple, scalable, and performance-focused.</p>
+        <hr>
+        <h3>Automation & Growth Strategist</h3>
+        <p>Helping businesses implement systems that streamline operations and drive sustainable growth.</p>
+    </div>
+    <div class="newsletter fade-in">
+        <h2>Get the Latest</h2>
+        <p>Get updates on new projects, tips, and insights from my experiments in digital creation.</p>
+        <form onsubmit="event.preventDefault(); alert('Subscribed! Thank you.');">
+            <input type="email" placeholder="Your email">
+            <button type="submit">Subscribe</button>
+        </form>
+    </div>
+    <footer class="fade-in">
+        <h3>Created by Adam Khalid Kaina</h3>
+        <p><a href="mailto:info@khalidak.site">info@khalidak.site</a></p>
+        <p><a href="terms.html" target="_blank">Terms of Service & Privacy Policy</a></p>
+    </footer>
+    <div class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        ↑↑↑
+    </div>
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/6946fa56a83a5d19807b3c4f/1jcuk3p2e';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const time = now.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            document.getElementById('time').textContent = time;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+        function toggleMenu() {
+            const menuIcons = document.getElementById('menu-icons');
+            menuIcons.style.display = menuIcons.style.display === 'flex' ? 'none' : 'flex';
+        }
+        window.addEventListener('scroll', () => {
+            const backToTop = document.querySelector('.back-to-top');
+            backToTop.style.display = window.scrollY > 300 ? 'flex' : 'none';
+        });
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(elem => observer.observe(elem));
+    </script>
 </body>
 </html>
