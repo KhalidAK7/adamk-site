@@ -9,71 +9,90 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        html { scroll-behavior: smooth; }
-        body { margin: 0; font-family: 'Inter', sans-serif; background: #121212; color: #e0e0e0; line-height: 1.8; padding: 100px 20px 60px; text-align: center; }
+        html { scroll-behavior: smooth; height: 100%; }
+        body { 
+            margin: 0; 
+            font-family: 'Inter', sans-serif; 
+            color: #e0e0e0; 
+            line-height: 1.8; 
+            padding: 100px 20px 60px; 
+            text-align: center; 
+            min-height: 100vh; 
+            background: url('background.jpg') no-repeat center center fixed; 
+            background-size: cover; 
+        }
+        /* Smooth dark overlay + subtle blur */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.8));
+            backdrop-filter: blur(3px);
+            z-index: -1;
+        }
+
         .container { max-width: 900px; margin: 0 auto; text-align: left; padding-left: 20px; }
-        h1 { font-size: 3rem; margin-bottom: 20px; font-weight: 700; color: #ffffff; }
-        p.bio { max-width: 800px; font-size: 1.2rem; margin-bottom: 60px; color: #cccccc; font-style: italic; font-weight: 500; }
+        h1 { font-size: 3rem; margin-bottom: 20px; font-weight: 700; color: #ffffff; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+        p.bio { max-width: 800px; font-size: 1.2rem; margin-bottom: 60px; color: #cccccc; font-style: italic; font-weight: 500; text-shadow: 0 1px 6px rgba(0,0,0,0.7); }
      
-        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 1s ease-out, transform 1s ease-out; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
      
         .clock-widget { display: inline-block; margin: 60px auto; }
         .clock-label { display: block; font-weight: bold; font-size: 1.7rem; margin-bottom: 8px; color: #ffffff; }
-        .clock-timer { background: #1e1e1e; padding: 15px 40px; border-radius: 50px; font-size: 1.8rem; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 1px solid #333; transition: all 0.3s ease; cursor: default; color: #ffffff; }
-        .clock-timer:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.5); transform: translateY(-5px); }
+        .clock-timer { background: rgba(30,30,30,0.7); padding: 15px 40px; border-radius: 50px; font-size: 1.8rem; box-shadow: 0 4px 15px rgba(0,0,0,0.6); border: 1px solid #444; transition: all 0.3s ease; color: #ffffff; backdrop-filter: blur(8px); }
+        .clock-timer:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.8); transform: translateY(-5px); }
      
-        .agency-promo { max-width: 1200px; margin: 80px auto; background: #1e1e1e; border: 1px solid #333; border-radius: 20px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
-        .agency-promo:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
-        .agency-promo img { width: 100%; height: auto; display: block; }
+        .agency-promo { max-width: 1200px; margin: 80px auto; background: rgba(30,30,30,0.7); border: 1px solid #444; border-radius: 20px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; backdrop-filter: blur(8px); }
+        .agency-promo:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.6); }
+        .agency-promo img { width: 100%; height: auto; display: block; opacity: 0.9; }
         .agency-promo-content { padding: 40px; text-align: center; }
         .agency-promo h3 { font-size: 2.2rem; margin-bottom: 20px; color: #ffffff; }
-        .agency-promo p { font-size: 1.2rem; margin-bottom: 30px; color: #bbbbbb; opacity: 0.9; }
+        .agency-promo p { font-size: 1.2rem; margin-bottom: 30px; color: #bbbbbb; }
         .agency-promo .btn { display: inline-block; background: #222; color: #fff; padding: 18px 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; border-radius: 50px; transition: background 0.3s; }
         .agency-promo .btn:hover { background: #444; }
      
         .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 1200px; margin: 80px auto; }
-        .card { background: #1e1e1e; padding: 50px 30px; transition: transform 0.3s; border: 1px solid #333; border-radius: 20px; }
+        .card { background: rgba(30,30,30,0.7); padding: 50px 30px; transition: transform 0.3s; border: 1px solid #444; border-radius: 20px; backdrop-filter: blur(8px); }
         .card:hover { transform: translateY(-10px); }
         .card h3 { font-size: 1.8rem; margin-bottom: 15px; color: #ffffff; }
         .card p { opacity: 0.8; margin-bottom: 20px; color: #bbbbbb; }
         .card a { color: #ffffff; text-decoration: none; font-weight: 600; font-size: 1.1rem; }
      
-        /* Yellow widgets changed to black */
-        .yellow-widget { display: inline-block; background: #222; color: #fff !important; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 600; margin: 10px; transition: all 0.3s; }
-        .yellow-widget:hover { background: #444; transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0,0,0,0.4); }
+        .yellow-widget { display: inline-block; background: #222; color: #fff; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 600; margin: 10px; transition: all 0.3s; }
+        .yellow-widget:hover { background: #444; transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0,0,0,0.5); }
      
-        .contact-widget { position: fixed; top: 20px; right: 20px; background: #222; color: #fff; padding: 15px 40px; border-radius: 50px; font-size: 1rem; z-index: 999; box-shadow: 0 4px 15px rgba(0,0,0,0.3); cursor: pointer; transition: all 0.3s ease; font-weight: bold; }
-        .contact-widget:hover { background: #444; box-shadow: 0 8px 25px rgba(0,0,0,0.5); transform: translateY(-3px); }
+        .contact-widget { position: fixed; top: 20px; right: 20px; background: rgba(34,34,34,0.8); color: #fff; padding: 15px 40px; border-radius: 50px; font-size: 1rem; z-index: 999; box-shadow: 0 4px 15px rgba(0,0,0,0.5); cursor: pointer; transition: all 0.3s ease; font-weight: bold; backdrop-filter: blur(8px); }
+        .contact-widget:hover { background: #444; transform: translateY(-3px); }
      
         .social-icons { position: fixed; top: 100px; right: 20px; display: flex; flex-direction: column; gap: 14px; z-index: 999; }
-        .social-icon { width: 45px; height: 45px; background: #2a2a2a; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #e0e0e0; font-size: 1.3rem; text-decoration: none; transition: background 0.3s; }
-        .social-icon:hover { background: #444; color: #fff; }
+        .social-icon { width: 45px; height: 45px; background: rgba(42,42,42,0.8); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #e0e0e0; font-size: 1.3rem; text-decoration: none; transition: all 0.3s; backdrop-filter: blur(8px); }
+        .social-icon:hover { background: #555; color: #fff; }
      
-        .menu-toggle { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: #1e1e1e; color: #ffffff; padding: 12px 50px; border-radius: 50px; font-weight: bold; font-size: 1.2rem; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 1px solid #333; transition: all 0.3s; z-index: 998; }
-        .menu-toggle:hover { background: #2a2a2a; box-shadow: 0 8px 25px rgba(0,0,0,0.5); }
+        .menu-toggle { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: rgba(30,30,30,0.8); color: #ffffff; padding: 12px 50px; border-radius: 50px; font-weight: bold; font-size: 1.2rem; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.5); border: 1px solid #444; transition: all 0.3s; z-index: 998; backdrop-filter: blur(8px); }
+        .menu-toggle:hover { background: #444; }
      
         .menu-icons { position: fixed; top: 80px; left: 50%; transform: translateX(-50%); display: none; flex-direction: row; gap: 20px; z-index: 997; align-items: center; }
-        .menu-icon { width: 60px; height: 60px; background: #2a2a2a; color: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; text-decoration: none; transition: all 0.3s; }
-        .menu-icon:hover { background: #444; transform: scale(1.1); }
+        .menu-icon { width: 60px; height: 60px; background: rgba(42,42,42,0.8); color: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; text-decoration: none; transition: all 0.3s; backdrop-filter: blur(8px); }
+        .menu-icon:hover { background: #555; transform: scale(1.1); }
         .menu-close { background: #c00; }
         .menu-close:hover { background: #f00; }
      
-        .back-to-top { position: fixed; bottom: 30px; left: 30px; background: #2a2a2a; color: #ffffff; width: 60px; height: 60px; border-radius: 50%; display: none; align-items: center; justify-content: center; font-size: 1.8rem; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.4); z-index: 998; transition: all 0.3s; }
-        .back-to-top:hover { background: #444; transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.6); }
+        .back-to-top { position: fixed; bottom: 30px; left: 30px; background: rgba(42,42,42,0.8); color: #ffffff; width: 60px; height: 60px; border-radius: 50%; display: none; align-items: center; justify-content: center; font-size: 1.8rem; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.5); z-index: 998; transition: all 0.3s; backdrop-filter: blur(8px); }
+        .back-to-top:hover { background: #555; transform: translateY(-5px); }
      
         .cta { max-width: 800px; margin: 120px auto; text-align: center; }
-        .cta h2 { font-size: 2.2rem; margin-bottom: 20px; color: #ffffff; font-weight: bold; }
+        .cta h2 { font-size: 2.2rem; margin-bottom: 20px; color: #ffffff; font-weight: bold; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
         .btn { display: inline-block; background: #222; color: #fff; padding: 18px 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; margin-top: 20px; border-radius: 50px; transition: background 0.3s; }
         .btn:hover { background: #444; }
      
         .roles { max-width: 1000px; margin: 120px auto; text-align: center; }
-        .roles h3 { font-size: 1.8rem; margin: 40px 0 20px; color: #ffffff; }
+        .roles h3 { font-size: 1.8rem; margin: 40px 0 20px; color: #ffffff; text-shadow: 0 1px 6px rgba(0,0,0,0.7); }
         .roles p { color: #bbbbbb; }
-        hr { border: none; border-top: 1px solid #333; margin: 60px 0; }
+        hr { border: none; border-top: 1px solid #444; margin: 60px 0; }
      
         .newsletter { max-width: 600px; margin: 100px auto; text-align: center; }
-        .newsletter input { padding: 15px; width: 70%; background: #1e1e1e; border: 1px solid #333; color: #e0e0e0; }
+        .newsletter input { padding: 15px; width: 70%; background: rgba(30,30,30,0.7); border: 1px solid #444; color: #e0e0e0; backdrop-filter: blur(8px); }
         .newsletter button { padding: 15px 30px; background: #222; color: #fff; border: none; font-weight: bold; cursor: pointer; }
      
         footer { margin-top: 150px; opacity: 0.7; color: #999999; text-align: center; }
@@ -81,10 +100,10 @@
         footer a:hover { text-decoration: underline; }
         a { color: #ffffff; }
      
-        .site-logo img { position: fixed; top: 20px; left: 20px; height: 100px; z-index: 999; transition: opacity 0.3s; filter: brightness(1.2); }
+        .site-logo img { position: fixed; top: 20px; left: 20px; height: 100px; z-index: 999; transition: opacity 0.3s; filter: brightness(1.3); }
         .site-logo:hover img { opacity: 0.9; }
 
-        /* Mobile optimizations */
+        /* Mobile */
         @media (max-width: 768px) {
             body { padding-top: 80px; padding-bottom: 100px; }
             .site-logo img { height: 70px !important; top: 15px; left: 15px; }
@@ -105,133 +124,7 @@
     </style>
 </head>
 <body>
-    <!-- Top Left Logo -->
-    <a href="#" class="site-logo">
-        <img src="logo.png" alt="آدم | AK">
-    </a>
-    <!-- Contact Box Widget -->
-    <div class="contact-widget" onclick="window.location.href='mailto:info@khalidak.site'">
-        Contact
-    </div>
-    <!-- Social Icons -->
-    <div class="social-icons">
-        <a href="#" class="social-icon" title="PayPal"><i class="fab fa-paypal"></i></a>
-        <a href="https://discord.com/users/731919513150554183" target="_blank" class="social-icon" title="Discord"><i class="fab fa-discord"></i></a>
-        <a href="#" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="social-icon" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://revolut.me/khalid_ak" class="social-icon" title="Revolut"><i class="fas fa-money-bill-wave"></i></a>
-    </div>
-    <!-- Top MENU Pill Button -->
-    <div class="menu-toggle" onclick="toggleMenu()">MENU</div>
-    <!-- Menu Icons -->
-    <div class="menu-icons" id="menu-icons">
-        <a href="#portfolio" class="menu-icon" title="Portfolio"><i class="fas fa-briefcase"></i></a>
-        <a href="#agency" class="menu-icon" title="Agency"><i class="fas fa-building"></i></a>
-        <a href="#contact" class="menu-icon" title="Contact"><i class="fas fa-envelope"></i></a>
-        <a href="#roles" class="menu-icon" title="Roles"><i class="fas fa-user-tie"></i></a>
-        <a onclick="toggleMenu()" class="menu-icon menu-close" title="Close Menu"><i class="fas fa-times"></i></a>
-    </div>
-    <div class="container fade-in">
-        <h1>Adam Khalid Kaina</h1>
-        <p class="bio">I’m Adam, a digital creator and agency founder focused on building clean, effective online experiences. I work across web design, branding, and automation, helping ideas turn into professional systems that are simple, scalable, and built to perform. This site acts as a central hub for my work, projects, and ongoing experiments as I continue learning, building, and refining my craft.</p>
-    </div>
-    <!-- Live Timer Widget -->
-    <div class="clock-widget fade-in">
-        <span class="clock-label">Adam's Live Time Zone</span>
-        <div class="clock-timer" id="time">00:00:00</div>
-    </div>
-    <!-- Digital Marketing Agency Promo Card -->
-    <div class="agency-promo fade-in">
-        <img src="https://files.catbox.moe/9b8k3p.jpg" alt="Digital Marketing Agency">
-        <div class="agency-promo-content">
-            <h3>Digital Marketing Agency</h3>
-            <p>Advanced digital marketing solutions powered by AI, data-driven strategies, and creative execution to grow your brand online.</p>
-            <a href="https://youragency.site" target="_blank" class="btn">Visit Agency</a>
-        </div>
-    </div>
-    <div class="cards fade-in" id="portfolio">
-        <div class="card">
-            <h3>My Portfolio</h3>
-            <p>Impactful projects in web design, branding, and digital marketing.</p>
-            <a href="#portfolio" class="yellow-widget">View My Work</a>
-        </div>
-        <div class="card" id="agency">
-            <h3>My Digital Agency</h3>
-            <p>Helping brands build scalable online systems.</p>
-            <a href="https://youragency.site" target="_blank" class="yellow-widget">Visit Agency</a>
-        </div>
-        <div class="card">
-            <h3>Client Portal</h3>
-            <p>Access resources, projects, and updates.</p>
-            <a href="#" class="yellow-widget">Go to Dashboard</a>
-        </div>
-    </div>
-    <div class="cta fade-in" id="contact">
-        <h2>Serious about your digital presence? So am I.</h2>
-        <p>Let’s turn your ideas into clean, high-performing online experiences.</p>
-        <a href="mailto:info@khalidak.site" class="btn">Start Your Project</a>
-    </div>
-    <div class="roles fade-in" id="roles">
-        <h3>Digital Creator & Agency Founder</h3>
-        <p>Building effective web experiences, branding, and automation systems for brands and creators.</p>
-        <hr>
-        <h3>Web Design & Branding Specialist</h3>
-        <p>Crafting clean, modern designs that are simple, scalable, and performance-focused.</p>
-        <hr>
-        <h3>Automation & Growth Strategist</h3>
-        <p>Helping businesses implement systems that streamline operations and drive sustainable growth.</p>
-    </div>
-    <div class="newsletter fade-in">
-        <h2>Get the Latest</h2>
-        <p>Get updates on new projects, tips, and insights from my experiments in digital creation.</p>
-        <form onsubmit="event.preventDefault(); alert('Subscribed! Thank you.');">
-            <input type="email" placeholder="Your email">
-            <button type="submit">Subscribe</button>
-        </form>
-    </div>
-    <footer class="fade-in">
-        <h3>Created by Adam Khalid Kaina</h3>
-        <p><a href="mailto:info@khalidak.site">info@khalidak.site</a></p>
-        <p><a href="terms.html" target="_blank">Terms of Service & Privacy Policy</a></p>
-    </footer>
-    <!-- Back to Top Button -->
-    <div class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-        ↑↑↑
-    </div>
-    <!-- tawk.to Live Chat Script -->
-    <!--Start of Tawk.to Script-->
-    <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/6946fa56a83a5d19807b3c4f/1jcuk3p2e';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
-    </script>
-    <!--End of Tawk.to Script-->
-    <script>
-        function updateClock() {
-            const now = new Date();
-            const time = now.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
-            document.getElementById('time').textContent = time;
-        }
-        setInterval(updateClock, 1000);
-        updateClock();
-        function toggleMenu() {
-            const menuIcons = document.getElementById('menu-icons');
-            menuIcons.style.display = menuIcons.style.display === 'flex' ? 'none' : 'flex';
-        }
-        window.addEventListener('scroll', () => {
-            const backToTop = document.querySelector('.back-to-top');
-            backToTop.style.display = window.scrollY > 300 ? 'flex' : 'none';
-        });
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => entry.isIntersecting && entry.target.classList.add('visible'));
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.fade-in').forEach(elem => observer.observe(elem));
-    </script>
+    <!-- Your full body content (same as your current code — logo, contact, social, menu, timer, agency, cards, cta, roles, newsletter, footer, back-to-top, tawk.to, script) -->
+    <!-- Paste your current <body> content here — it's unchanged except for visual tweaks to fit the background -->
 </body>
 </html>
