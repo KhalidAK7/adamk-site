@@ -15,7 +15,7 @@
         h1 { font-size: 3rem; margin-bottom: 20px; font-weight: 700; color: #ffffff; }
         p.bio { max-width: 800px; font-size: 1.2rem; margin-bottom: 60px; color: #cccccc; font-style: italic; font-weight: 500; }
     
-        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 1s ease-out, transform 1s ease-out; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
     
         .clock-widget { display: inline-block; margin: 60px auto; }
@@ -23,18 +23,50 @@
         .clock-timer { background: #1e1e1e; padding: 15px 40px; border-radius: 50px; font-size: 1.8rem; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 1px solid #333; transition: all 0.3s ease; cursor: default; color: #ffffff; }
         .clock-timer:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.5); transform: translateY(-5px); }
     
-        .agency-promo { max-width: 1200px; margin: 80px auto; background: #1e1e1e; border: 1px solid #333; border-radius: 20px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
-        .agency-promo:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
-        .agency-promo img { width: 100%; height: auto; display: block; }
-        .agency-promo-content { padding: 40px; text-align: center; }
-        .agency-promo h3 { font-size: 2.2rem; margin-bottom: 20px; color: #ffffff; }
-        .agency-promo p { font-size: 1.2rem; margin-bottom: 30px; color: #bbbbbb; opacity: 0.9; }
-        .agency-promo .btn { display: inline-block; background: #222; color: #fff; padding: 18px 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; border-radius: 50px; transition: background 0.3s; }
-        .agency-promo .btn:hover { background: #444; }
+        /* Agency Promo — smaller, smoother, hover effects */
+        .agency-promo { 
+            max-width: 1000px; 
+            margin: 80px auto; 
+            background: #1e1e1e; 
+            border: 1px solid #333; 
+            border-radius: 20px; 
+            overflow: hidden; 
+            transition: transform 0.5s ease, box-shadow 0.5s ease; 
+            opacity: 0; 
+            transform: translateY(40px); 
+        }
+        .agency-promo.visible { opacity: 1; transform: translateY(0); transition-delay: 0.2s; }
+        .agency-promo:hover { 
+            transform: translateY(-15px) scale(1.02); 
+            box-shadow: 0 25px 50px rgba(0,0,0,0.6); 
+        }
+        .agency-promo img { 
+            width: 100%; 
+            height: 300px; /* Fixed smaller height — half the depth */
+            object-fit: cover; 
+            display: block; 
+            transition: transform 0.6s ease; 
+        }
+        .agency-promo:hover img { transform: scale(1.05); }
+        .agency-promo-content { padding: 30px; text-align: center; } /* Reduced padding */
+        .agency-promo h3 { font-size: 2rem; margin-bottom: 15px; color: #ffffff; }
+        .agency-promo p { font-size: 1.1rem; margin-bottom: 25px; color: #bbbbbb; }
+        .agency-promo .btn { 
+            display: inline-block; 
+            background: #222; 
+            color: #fff; 
+            padding: 16px 45px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            border-radius: 50px; 
+            transition: all 0.4s ease; 
+        }
+        .agency-promo .btn:hover { background: #444; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.5); }
     
         .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 1200px; margin: 80px auto; }
-        .card { background: #1e1e1e; padding: 50px 30px; transition: transform 0.3s; border: 1px solid #333; border-radius: 20px; }
-        .card:hover { transform: translateY(-10px); }
+        .card { background: #1e1e1e; padding: 50px 30px; transition: transform 0.4s ease, box-shadow 0.4s ease; border: 1px solid #333; border-radius: 20px; }
+        .card:hover { transform: translateY(-12px); box-shadow: 0 15px 35px rgba(0,0,0,0.5); }
         .card h3 { font-size: 1.8rem; margin-bottom: 15px; color: #ffffff; }
         .card p { opacity: 0.8; margin-bottom: 20px; color: #bbbbbb; }
         .card a { color: #ffffff; text-decoration: none; font-weight: 600; font-size: 1.1rem; }
@@ -46,15 +78,15 @@
         .contact-widget:hover { background: #444; box-shadow: 0 8px 25px rgba(0,0,0,0.5); transform: translateY(-3px); }
     
         .social-icons { position: fixed; top: 100px; right: 20px; display: flex; flex-direction: column; gap: 14px; z-index: 999; }
-        .social-icon { width: 45px; height: 45px; background: #2a2a2a; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #e0e0e0; font-size: 1.3rem; text-decoration: none; transition: background 0.3s; }
-        .social-icon:hover { background: #444; color: #fff; }
+        .social-icon { width: 45px; height: 45px; background: #2a2a2a; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #e0e0e0; font-size: 1.3rem; text-decoration: none; transition: all 0.3s; }
+        .social-icon:hover { background: #444; color: #fff; transform: scale(1.1); }
     
         .menu-toggle { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: #1e1e1e; color: #ffffff; padding: 12px 50px; border-radius: 50px; font-weight: bold; font-size: 1.2rem; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 1px solid #333; transition: all 0.3s; z-index: 998; }
         .menu-toggle:hover { background: #2a2a2a; box-shadow: 0 8px 25px rgba(0,0,0,0.5); }
     
         .menu-icons { position: fixed; top: 80px; left: 50%; transform: translateX(-50%); display: none; flex-direction: row; gap: 20px; z-index: 997; align-items: center; }
         .menu-icon { width: 60px; height: 60px; background: #2a2a2a; color: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; text-decoration: none; transition: all 0.3s; }
-        .menu-icon:hover { background: #444; transform: scale(1.1); }
+        .menu-icon:hover { background: #444; transform: scale(1.15); }
         .menu-close { background: #c00; }
         .menu-close:hover { background: #f00; }
     
@@ -88,7 +120,6 @@
             .site-logo img { height: 70px !important; top: 15px; left: 15px; }
             .contact-widget { padding: 12px 30px; font-size: 0.9rem; top: 15px; right: 15px; }
             .menu-toggle { padding: 10px 40px; font-size: 1rem; top: 15px; }
-            /* Social icons: fixed at bottom center, horizontal row */
             .social-icons {
                 position: fixed;
                 top: auto;
@@ -99,8 +130,8 @@
                 gap: 15px;
             }
             .social-icon { width: 45px; height: 45px; font-size: 1.2rem; }
-            /* Back-to-top: bottom left on mobile */
             .back-to-top { bottom: 30px; left: 30px; transform: none; }
+            .agency-promo img { height: 200px; } /* Even smaller on mobile */
         }
     </style>
 </head>
@@ -140,7 +171,7 @@
         <span class="clock-label">Adam's Live Time Zone</span>
         <div class="clock-timer" id="time">00:00:00</div>
     </div>
-    <!-- Digital Marketing Agency Promo Card -->
+    <!-- Digital Marketing Agency Promo Card — now smaller + animated -->
     <div class="agency-promo fade-in">
         <img src="agency.jpg" alt="Digital Marketing Agency">
         <div class="agency-promo-content">
@@ -229,7 +260,11 @@
             backToTop.style.display = window.scrollY > 300 ? 'flex' : 'none';
         });
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => entry.isIntersecting && entry.target.classList.add('visible'));
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
         }, { threshold: 0.1 });
         document.querySelectorAll('.fade-in').forEach(elem => observer.observe(elem));
     </script>
